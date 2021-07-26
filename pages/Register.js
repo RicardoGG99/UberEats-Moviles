@@ -16,8 +16,8 @@ import { Views } from "../styles/views";
 import InputManager from "../components/InputManager";
 
 //Fetch
-import registerFetch from '../connectionToBack/registerFetch';
-import { getRes } from '../connectionToBack/setGetRes';
+import registerFetch from "../connectionToBack/registerFetch";
+import { getRes } from "../connectionToBack/setGetRes";
 
 //Constants declarations
 const { WrapContainer, InnerContainer } = Containers;
@@ -40,13 +40,20 @@ const Register = ({ navigation }) => {
     const response = getRes();
     console.log(response);
 
-    if (response == "Success") {
-      alert("User Created Successfully");
-      goToDashboard();
+    if (password == confirmPassword) {
+      if (response == "Success") {
+        alert("User Created Successfully");
+        goToDashboard();
+      } else {
+        alert("Credentials are not correct");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+      }
     } else {
-      alert("Credentials are not correct");
-      setEmail("");
+      alert("Passwords must be the same");
       setPassword("");
+      setConfirmPassword("");
     }
   };
 

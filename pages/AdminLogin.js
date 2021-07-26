@@ -27,7 +27,7 @@ const { FormArea, Division, ExtraView } = Views;
 const { ExtraText, TextLink, TextLinkContent } = Texts;
 const { SignButton, SignButtonText } = ButtonStyles;
 
-const Login = ({ navigation }) => {
+const AdminLogin = ({ navigation }) => {
   //useState
   const [hidePassword, setHidePassword] = useState(true);
   const [email, setEmail] = useState("");
@@ -59,10 +59,6 @@ const Login = ({ navigation }) => {
     navigation.navigate("Dashboard");
   };
 
-  const goToAdminLogin = () => {
-    navigation.navigate("AdminLogin");
-  };
-
   const inputSchema = yup.object({
     email: yup.string().required().trim(),
     password: yup.string().required().min(8),
@@ -78,7 +74,7 @@ const Login = ({ navigation }) => {
             resizeMode="cover"
             source={require("../assets/uber-eats-logo.png")}
           />
-          <Text style={SubTitle}> Log to your Account: </Text>
+          <Text style={SubTitle}> Log to your Administrator Account: </Text>
 
           <Formik
             initialValues={{ email: "", password: "" }}
@@ -87,14 +83,7 @@ const Login = ({ navigation }) => {
               console.log(values);
             }}
           >
-            {({
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              values,
-              errors,
-              touched,
-            }) => (
+            {({ handleChange, handleBlur, values }) => (
               <View style={FormArea}>
                 <InputManager
                   autoFocus={true}
@@ -111,12 +100,11 @@ const Login = ({ navigation }) => {
                   value={email}
                   edit={true}
                 />
-                {/* <Text style={ExtraText}> {touched.email && errors.email} </Text> */}
 
                 <InputManager
                   label="Password"
                   icon="lock"
-                  placeholder="******** (8-20 characters)"
+                  placeholder="**** (8-20 characters)"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("password")}
                   blurr={handleBlur("password")}
@@ -129,25 +117,12 @@ const Login = ({ navigation }) => {
                   value={password}
                   edit={true}
                 />
-                {/* <Text style={ExtraText}> {touched.password && errors.password} </Text> */}
 
                 <TouchableOpacity onPress={Log} style={SignButton}>
                   <Text style={SignButtonText}>Sign In</Text>
                 </TouchableOpacity>
                 <View style={Division} />
-                <View style={ExtraView}>
-                  <Text style={ExtraText}>Don't have an account already? </Text>
-                  <TouchableOpacity onPress={goToRegister} style={TextLink}>
-                    <Text style={TextLinkContent}>Sign Up</Text>
-                  </TouchableOpacity>
-                </View>
-                <View style={ExtraView}>
-                  <Text style={ExtraText}> Or Click Here to </Text>
-                  <TouchableOpacity onPress={goToAdminLogin} style={TextLink}>
-                    <Text style={TextLinkContent}>Sign In</Text>
-                  </TouchableOpacity>
-                  <Text style={ExtraText}> as an Administrator</Text>
-                </View>
+                <View style={ExtraView}></View>
               </View>
             )}
           </Formik>
@@ -157,4 +132,4 @@ const Login = ({ navigation }) => {
   );
 };
 
-export default Login;
+export default AdminLogin;

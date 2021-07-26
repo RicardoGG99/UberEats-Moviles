@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminDashboardProduct from "./pages/AdminDashboardProduct";
+import AdminLogin from "./pages/AdminLogin";
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
+        <Stack.Screen
           name="Dashboard"
           component={Dashboard}
           options={{ title: "Welcome" }}
@@ -24,7 +25,7 @@ export default function App() {
         <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboard}
-          options={{ title: "Welcome Admin" }}
+          options={{ title: "Welcome Administrator" }}
         />
         <Stack.Screen
           name="AdminDashboardProduct"
@@ -34,7 +35,7 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{ title: "Enter to you Account" }}
+          options={{ title: "Enter to your Account" }}
         />
         <Stack.Screen
           name="Register"
@@ -45,6 +46,11 @@ export default function App() {
           name="DashboardProduct"
           component={DashboardProduct}
           options={{ title: "Check the Menu" }}
+        />
+        <Stack.Screen
+          name="AdminLogin"
+          component={(name = "AdminLogin")}
+          options={{ title: "Enter to your Administrator Account" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
