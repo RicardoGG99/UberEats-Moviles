@@ -20,6 +20,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: "Enter to your Account" }}
+        />
         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
@@ -36,11 +41,7 @@ export default function App() {
           component={AdminDashboardProduct}
           options={{ title: "Check the Menu Administrator" }}
         />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ title: "Enter to your Account" }}
-        />
+       
         <Stack.Screen
           name="Register"
           component={Register}

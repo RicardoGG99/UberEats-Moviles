@@ -43,7 +43,7 @@ const AdminLogin = ({ navigation }) => {
       localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
       console.log("el local: " + localStorage.getItem("CREDENTIALS"));
       alert("Logged Successfully");
-      goToDashboard();
+      goToAdminDashboard();
     } else {
       alert("Credentials are not correct");
       setEmail("");

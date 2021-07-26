@@ -44,6 +44,8 @@ const Login = ({ navigation }) => {
       console.log("el local: " + localStorage.getItem("CREDENTIALS"));
       alert("Logged Successfully");
       goToDashboard();
+    
+
     } else {
       alert("Credentials are not correct");
       setEmail("");
@@ -54,7 +56,9 @@ const Login = ({ navigation }) => {
   const goToRegister = () => {
     navigation.navigate("Register");
   };
-
+  const goToAdminDashboard = () => {
+    navigation.navigate("AdminDashboard")
+  }
   const goToDashboard = () => {
     navigation.navigate("Dashboard");
   };
