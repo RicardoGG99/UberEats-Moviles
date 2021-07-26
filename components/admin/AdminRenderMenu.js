@@ -4,6 +4,7 @@ import { Entypo } from "@expo/vector-icons";
 
 //fetch
 import getCommerceProductsFetch from "../../connectionToBack/getCommerceProductsFetch";
+import deleteProdFetch from '../../connectionToBack/deleteProductFetch';
 
 //styles
 import { ButtonStyles } from "../../styles/buttons";
@@ -20,6 +21,10 @@ const { MenuTitle } = Titles;
 const { EditProductIcon, TrashProductIcon } = Icons;
 
 const renderItem = ({ item }) => {
+  const deleteProd = () => {
+    deleteProdFetch(item.product_id)
+    alert('Product Deleted!')
+  }
   return (
     <View style={DashboardProductButton}>
       <View>
@@ -31,7 +36,7 @@ const renderItem = ({ item }) => {
           <Entypo name="edit" size={25} color="black" style={EditProductIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={deleteProd}>
           <Entypo
             name="trash"
             size={25}
