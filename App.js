@@ -26,16 +26,15 @@ export default function App() {
           options={{ title: "Enter to your Account" }}
         />
         <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
-          options={{ title: "Welcome" }}
-        />
-        <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboard}
           options={{ title: "Welcome Administrator" }}
         />
-
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{ title: "Welcome" }}
+        />
         <Stack.Screen
           name="AdminDashboardProduct"
           component={AdminDashboardProduct}

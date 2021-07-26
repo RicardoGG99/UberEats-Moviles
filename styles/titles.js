@@ -5,7 +5,7 @@ export const Titles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     fontWeight: "bold",
-    color: "lightseagreen",
+    color: "white",
     padding: 10,
   },
 

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import burger from "../../assets/burger-king-logo.png";
 
 //Components
-import DashboardTitle from "../../components/admin/AdminDashboardTitle";
+import AdminDashboardTitle from "../../components/admin/AdminDashboardTitle";
 import RenderAdminEstablishment from "../../components/admin/RenderAdminEstablishment";
 
 //styles
@@ -42,7 +41,8 @@ const AdminDashboard = ({ navigation }) => {
       <StatusBar style="light" />
       <View style={InnerContainer}>
         <View style={DashboardContainer}>
-          <DashboardTitle
+          <AdminDashboardTitle
+            navigation={navigation}
             show={show}
             renderItem={renderItem}
             keyExtractor={(item) => item.commerce_id.toString()}

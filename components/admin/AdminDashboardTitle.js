@@ -12,7 +12,11 @@ const { DashboardTitleText } = Texts;
 const { DashboardTitleView } = Views;
 const { NewButton, NewButtonText } = ButtonStyles;
 
-const AdminDashboardTitle = ({ show, ...props }) => {
+const AdminDashboardTitle = ({ show, navigation, ...props }) => {
+  const goToCreateEstablishment = () => {
+    navigation.navigate("CreateEstablishment");
+  };
+
   return (
     <View style={DashboardTitleView}>
       <Text style={DashboardTitleText}>
@@ -21,7 +25,7 @@ const AdminDashboardTitle = ({ show, ...props }) => {
 
       <FlatList data={show} {...props}></FlatList>
 
-      <TouchableOpacity style={NewButton}>
+      <TouchableOpacity onPress={goToCreateEstablishment} style={NewButton}>
         <Text style={NewButtonText}>Create a New Establishment</Text>
       </TouchableOpacity>
     </View>
