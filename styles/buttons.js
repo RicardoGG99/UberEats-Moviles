@@ -56,4 +56,8 @@ export const ButtonStyles = StyleSheet.create({
     paddingBottom: 5,
     width: 700,
   },
+
+  DashboardProductButton: {
+    marginBottom: 20,
+  },
 });

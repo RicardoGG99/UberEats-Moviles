@@ -21,4 +21,11 @@ export const Images = StyleSheet.create({
     height: "50%",
     minWidth: "100%",
   },
+
+  ProductImage: {
+    width: 300,
+    height: 220,
+    borderRadius: 40,
+    backgroundColor: "#9C4E93",
+  },
 });

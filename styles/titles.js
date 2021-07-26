@@ -16,4 +16,12 @@ export const Titles = StyleSheet.create({
     fontWeight: "bold",
     color: "#E5E7EB",
   },
+
+  MenuTitle: {
+    alignSelf: "center",
+    paddingBottom: 30,
+    paddingTop: 10,
+    fontWeight: "bold",
+    fontSize: 35,
+  },
 });

@@ -27,4 +27,10 @@ export const Views = StyleSheet.create({
     flexDirection: "row",
     height: 50,
   },
+
+  DashboardSecondView: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

@@ -67,4 +67,18 @@ export const Texts = StyleSheet.create({
     bottom: 50,
     left: 50,
   },
+
+  ProductText: {
+    alignSelf: "center",
+    paddingTop: 10,
+    fontSize: 20,
+    color: "black",
+  },
+
+  PriceText: {
+    alignSelf: "center",
+    paddingTop: 3,
+    fontSize: 18,
+    color: "black",
+  },
 });
