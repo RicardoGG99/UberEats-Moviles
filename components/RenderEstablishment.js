@@ -6,27 +6,30 @@ import {
   ScrollView,
   Image,
 } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 import { Icons } from "../styles/icons";
 import { Texts } from "../styles/texts";
 import { ButtonStyles } from "../styles/buttons";
 
-import getCommerceProductsFetch from '../connectionToBack/getCommerceProductsFetch'
+import getCommerceProductsFetch from "../connectionToBack/getCommerceProductsFetch";
 
-const { EstablishmentIcon, PinIcon } = Icons;
+const { EstablishmentIcon, TrashIcon, EditIcon } = Icons;
 const { textInput } = Texts;
 const { TaskInput } = ButtonStyles;
 
 const RenderEstablishment = ({ item, navigation }) => {
-
   const goToDashboardProduct = () => {
     navigation.navigate("DashboardProduct", { name: item.name });
   };
 
   const getProducts = async () => {
-    navigation.navigate('DashboardProduct', {commerce: item.commerce_id, name:item.commerce_name})
+    navigation.navigate("DashboardProduct", {
+      commerce: item.commerce_id,
+      name: item.commerce_name,
+    });
     console.log(`Render Establishment: ${item}`);
-   }
+  };
   return (
     <ScrollView>
       <View>
@@ -40,6 +43,14 @@ const RenderEstablishment = ({ item, navigation }) => {
             style={textInput}
             keyboardType="default"
           ></TextInput>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Entypo name="edit" size={25} color="#3CB371" style={EditIcon} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Entypo name="trash" size={25} color="#3CB371" style={TrashIcon} />
         </TouchableOpacity>
       </View>
     </ScrollView>

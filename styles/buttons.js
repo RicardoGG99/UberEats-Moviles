@@ -22,7 +22,7 @@ export const ButtonStyles = StyleSheet.create({
   SignIn: {
     left: 1270,
     bottom: 585,
-    zIndex:10000,
+    zIndex: 10000,
   },
 
   LogOutButton: {
@@ -60,5 +60,8 @@ export const ButtonStyles = StyleSheet.create({
 
   DashboardProductButton: {
     marginBottom: 20,
+    alignContent: "center",
+    alignItems: "center",
+    textAlign: "center",
   },
 });

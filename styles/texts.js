@@ -70,6 +70,7 @@ export const Texts = StyleSheet.create({
 
   ProductText: {
     alignSelf: "center",
+    alignContent: "center",
     paddingTop: 10,
     fontSize: 25,
     color: "#100402",
@@ -77,6 +78,7 @@ export const Texts = StyleSheet.create({
 
   PriceText: {
     alignSelf: "center",
+    alignContent: "center",
     paddingTop: 3,
     fontSize: 22,
     color: "#100402",

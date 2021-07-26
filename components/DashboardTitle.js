@@ -16,16 +16,13 @@ const DashboardTitle = ({ show, ...props }) => {
   return (
     <View style={DashboardTitleView}>
       <Text style={DashboardTitleText}>
-        {" "}
-        Check your Available Establishments{" "}
+        Check your Available Establishments
       </Text>
 
       <FlatList data={show} {...props}></FlatList>
 
-      <TouchableOpacity>
-        <View style={NewButton}>
-          <Text style={NewButtonText}>Create a New Establishment</Text>
-        </View>
+      <TouchableOpacity style={NewButton}>
+        <Text style={NewButtonText}>Create a New Establishment</Text>
       </TouchableOpacity>
     </View>
   );
