@@ -1,16 +1,14 @@
 import React from "react";
 
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList } from "react-native";
 
 //styles
 import { Texts } from "../styles/texts";
 import { Views } from "../styles/views";
-import { ButtonStyles } from "../styles/buttons";
 
 //styles declarations
 const { DashboardTitleText } = Texts;
 const { DashboardTitleView } = Views;
-const { NewButton, NewButtonText } = ButtonStyles;
 
 const DashboardTitle = ({ show, ...props }) => {
   return (
@@ -20,10 +18,6 @@ const DashboardTitle = ({ show, ...props }) => {
       </Text>
 
       <FlatList data={show} {...props}></FlatList>
-
-      <TouchableOpacity style={NewButton}>
-        <Text style={NewButtonText}>Create a New Establishment</Text>
-      </TouchableOpacity>
     </View>
   );
 };

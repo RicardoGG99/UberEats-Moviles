@@ -19,10 +19,6 @@ const { textInput } = Texts;
 const { TaskInput } = ButtonStyles;
 
 const RenderEstablishment = ({ item, navigation }) => {
-  const goToDashboardProduct = () => {
-    navigation.navigate("DashboardProduct", { name: item.name });
-  };
-
   const getProducts = async () => {
     navigation.navigate("DashboardProduct", {
       commerce: item.commerce_id,
@@ -43,14 +39,6 @@ const RenderEstablishment = ({ item, navigation }) => {
             style={textInput}
             keyboardType="default"
           ></TextInput>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Entypo name="edit" size={25} color="#3CB371" style={EditIcon} />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Entypo name="trash" size={25} color="#3CB371" style={TrashIcon} />
         </TouchableOpacity>
       </View>
     </ScrollView>

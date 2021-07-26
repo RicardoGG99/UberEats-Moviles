@@ -9,17 +9,21 @@ import {
 
 import { Entypo } from "@expo/vector-icons";
 
-import { Icons } from "../styles/icons";
-import { Texts } from "../styles/texts";
-import { ButtonStyles } from "../styles/buttons";
+import { Icons } from "../../styles/icons";
+import { Texts } from "../../styles/texts";
+import { ButtonStyles } from "../../styles/buttons";
 
 const { EstablishmentIcon, TrashIcon, EditIcon } = Icons;
 const { textInput } = Texts;
 const { TaskInput } = ButtonStyles;
 
 const RenderAdminEstablishment = ({ item, navigation }) => {
-  const goToDashboardProduct = () => {
-    navigation.navigate("AdminDashboardProduct", { name: item.name });
+  const getProducts = async () => {
+    navigation.navigate("AdminDashboardProduct", {
+      commerce: item.commerce_id,
+      name: item.commerce_name,
+    });
+    console.log(`Render Establishment: ${item}`);
   };
 
   return (
@@ -27,21 +31,21 @@ const RenderAdminEstablishment = ({ item, navigation }) => {
       <View>
         <Image style={EstablishmentIcon} source={item.image}></Image>
 
-        <TouchableOpacity onPress={goToDashboardProduct} style={TaskInput}>
+        <TouchableOpacity onPress={getProducts} style={TaskInput}>
           <TextInput
-            value={item.name}
+            value={item.commerce_name}
             editable={false}
             style={textInput}
             keyboardType="default"
           ></TextInput>
         </TouchableOpacity>
 
-        <TouchableOpacity style={TrashIcon}>
-          <Entypo name="trash" color="#40953B" size={25} />
+        <TouchableOpacity>
+          <Entypo name="trash" color="#40953B" size={25} style={TrashIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={EditIcon}>
-          <Entypo name="edit" color="#40953B" size={25} />
+        <TouchableOpacity>
+          <Entypo name="edit" color="#40953B" size={25} style={EditIcon} />
         </TouchableOpacity>
       </View>
     </ScrollView>

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { View, Image, FlatList, Text, TouchableOpacity } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 //fetch
-import getCommerceProductsFetch from "../connectionToBack/getCommerceProductsFetch";
+import getCommerceProductsFetch from "../../connectionToBack/getCommerceProductsFetch";
 
 //styles
-import { ButtonStyles } from "../styles/buttons";
-import { Images } from "../styles/images";
-import { Texts } from "../styles/texts";
-import { Titles } from "../styles/titles";
+import { ButtonStyles } from "../../styles/buttons";
+import { Images } from "../../styles/images";
+import { Texts } from "../../styles/texts";
+import { Titles } from "../../styles/titles";
+import { Icons } from "../../styles/icons";
 
 //styles declarations
-const { DashboardProductButton } = ButtonStyles;
+const { DashboardProductButton, NewButton, NewButtonText } = ButtonStyles;
 const { ProductImage } = Images;
 const { ProductText, PriceText } = Texts;
 const { MenuTitle } = Titles;
+const { EditProductIcon, TrashProductIcon } = Icons;
 
 const renderItem = ({ item }) => {
   return (
@@ -23,12 +26,25 @@ const renderItem = ({ item }) => {
         <Image resizeMode="cover" style={ProductImage} source={item.photo} />
         <Text style={ProductText}> {item.product_name} </Text>
         <Text style={PriceText}> {item.product_price} $ </Text>
+
+        <TouchableOpacity>
+          <Entypo name="edit" size={25} color="black" style={EditProductIcon} />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Entypo
+            name="trash"
+            size={25}
+            color="black"
+            style={TrashProductIcon}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-const RenderMenu = ({ commerce, label }) => {
+const AdminRenderMenu = ({ commerce, label }) => {
   const [data, setData] = useState("");
 
   const getProducts = async () => {
@@ -51,8 +67,12 @@ const RenderMenu = ({ commerce, label }) => {
         renderItem={renderItem}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
       />
+
+      <TouchableOpacity style={NewButton}>
+        <Text style={NewButtonText}>Create a New Product</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default RenderMenu;
+export default AdminRenderMenu;

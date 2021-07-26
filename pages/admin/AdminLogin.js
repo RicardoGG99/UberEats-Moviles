@@ -5,19 +5,19 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 //styles
-import { ButtonStyles } from "../styles/buttons";
-import { Containers } from "../styles/containers";
-import { Images } from "../styles/images";
-import { Texts } from "../styles/texts";
-import { Titles } from "../styles/titles";
-import { Views } from "../styles/views";
+import { ButtonStyles } from "../../styles/buttons";
+import { Containers } from "../../styles/containers";
+import { Images } from "../../styles/images";
+import { Texts } from "../../styles/texts";
+import { Titles } from "../../styles/titles";
+import { Views } from "../../styles/views";
 
 //Components
-import InputManager from "../components/InputManager";
+import InputManager from "../../components/InputManager";
 
 //Fetch
-import loginFetch from "../connectionToBack/loginFetch";
-import { getRes } from "../connectionToBack/setGetRes";
+import loginFetch from "../../connectionToBack/loginFetch";
+import { getRes } from "../../connectionToBack/setGetRes";
 
 //Constants declarations
 const { WrapContainer, InnerContainer } = Containers;
@@ -72,7 +72,7 @@ const AdminLogin = ({ navigation }) => {
           <Image
             style={UberEatsLogo}
             resizeMode="cover"
-            source={require("../assets/uber-eats-logo.png")}
+            source={require("../../assets/uber-eats-logo.png")}
           />
           <Text style={SubTitle}> Log to your Administrator Account: </Text>
 

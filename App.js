@@ -7,9 +7,12 @@ import Dashboard from "./pages/Dashboard";
 import DashboardProduct from "./pages/DashboardProduct";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminDashboardProduct from "./pages/AdminDashboardProduct";
-import AdminLogin from "./pages/AdminLogin";
+
+//Administrator
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDashboardProduct from "./pages/admin/AdminDashboardProduct";
+import AdminLogin from "./pages/admin/AdminLogin";
+import CreateEstablishment from "./pages/admin/CreateEstablishment";
 
 const Stack = createStackNavigator();
 
@@ -27,10 +30,11 @@ export default function App() {
           component={AdminDashboard}
           options={{ title: "Welcome Administrator" }}
         />
+
         <Stack.Screen
           name="AdminDashboardProduct"
           component={AdminDashboardProduct}
-          options={{ title: "Check the Menu" }}
+          options={{ title: "Check the Menu Administrator" }}
         />
         <Stack.Screen
           name="Login"
@@ -49,8 +53,13 @@ export default function App() {
         />
         <Stack.Screen
           name="AdminLogin"
-          component={(name = "AdminLogin")}
+          component={AdminLogin}
           options={{ title: "Enter to your Administrator Account" }}
+        />
+        <Stack.Screen
+          name="CreateEstablishment"
+          component={CreateEstablishment}
+          options={{ title: "Create your own Establishment" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -11,7 +11,6 @@ import RenderEstablishment from "../components/RenderEstablishment";
 import { Containers } from "../styles/containers";
 
 //fetch
-
 import getCommercesFetch from "../connectionToBack/getCommercesFetch";
 import logoutFetch from "../connectionToBack/logoutFetch";
 import { getRes } from "../connectionToBack/setGetRes";
@@ -47,14 +46,6 @@ const Dashboard = ({ navigation }) => {
       goToLogin();
     }
   };
-
-  const dataToRender = [
-    {
-      id: 1,
-      name: "Burger King",
-      image: burger,
-    },
-  ];
 
   //useState y useEffect
   const [show, setShow] = useState("");

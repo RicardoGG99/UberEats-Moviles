@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-
-import burger from "../assets/burger-king-logo.png";
+import burger from "../../assets/burger-king-logo.png";
 
 //Components
-import DashboardTitle from "../components/DashboardTitle";
-import RenderAdminEstablishment from "../components/RenderAdminEstablishment";
+import DashboardTitle from "../../components/admin/AdminDashboardTitle";
+import RenderAdminEstablishment from "../../components/admin/RenderAdminEstablishment";
 
 //styles
-import { Containers } from "../styles/containers";
-import { Texts } from "../styles/texts";
+import { Containers } from "../../styles/containers";
+import { Texts } from "../../styles/texts";
 
 //styles declarations
 const { WrapContainer, InnerContainer, DashboardContainer } = Containers;
 const { textInput } = Texts;
 
+//fetch
+import getCommercesFetch from "../../connectionToBack/getCommercesFetch";
+import logoutFetch from "../../connectionToBack/logoutFetch";
+import { getRes } from "../../connectionToBack/setGetRes";
+
 const AdminDashboard = ({ navigation }) => {
   const [show, setShow] = useState("");
 
-  const dataToRender = [
-    {
-      id: 1,
-      name: "Burger King",
-      image: burger,
-    },
-  ];
-
   const loadEstablishments = async () => {
-    setShow(dataToRender);
+    const data = await getCommercesFetch();
+    console.log("los negocios: " + JSON.stringify(data));
+    setShow(data);
   };
 
   useEffect(() => {
@@ -47,7 +45,7 @@ const AdminDashboard = ({ navigation }) => {
           <DashboardTitle
             show={show}
             renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.commerce_id.toString()}
           />
         </View>
       </View>
