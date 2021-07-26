@@ -55,8 +55,8 @@ const AdminLogin = ({ navigation }) => {
     navigation.navigate("Register");
   };
 
-  const goToDashboard = () => {
-    navigation.navigate("Dashboard");
+  const goToAdminDashboard = () => {
+    navigation.navigate("AdminDashboard");
   };
 
   const inputSchema = yup.object({

@@ -4,6 +4,8 @@ import { StatusBar } from "expo-status-bar";
 
 import { Formik } from "formik";
 
+import createFetch from '../../connectionToBack/createCommerceFetch'
+
 //Components
 import InputManager from "../../components/InputManager";
 
@@ -26,8 +28,9 @@ const CreateEstablishment = () => {
   const [location, setLocation] = useState("");
   const [dsc, setDsc] = useState("");
 
-  const create = () => {
-    alert("hola");
+  const create = async () => {
+    await createFetch(name, category, location, dsc);
+    alert('Created!')
   };
 
   return (
