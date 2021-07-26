@@ -61,12 +61,12 @@ const Dashboard = ({ navigation }) => {
 
   useEffect(() => {
     loadEstablishments();
-  });
+  },[]);
 
   //Redirects
-  //   const logIn = () => {
-  //     navigation.navigate('Login');
-  //   };
+     const logIn = () => {
+     navigation.navigate('Login');
+    };
 
   //   const logOut = async () => {
   //     await logoutFetch();
@@ -116,11 +116,11 @@ const Dashboard = ({ navigation }) => {
         </View>
       </View>
 
-      {/* <TouchableHighlight>
+       <TouchableHighlight onPress={logIn}>
         <View style={TaskButton}>
-          <Text style={TaskText}>Create a New Task</Text>
+          <Text style={TaskText}>Create</Text>
         </View>
-      </TouchableHighlight> */}
+      </TouchableHighlight>
       {/* <TouchableHighlight>
         <View style={TaskButton}>
           <Text style={TaskText} onPress={goToUpdateUser}>

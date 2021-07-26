@@ -1,9 +1,9 @@
 import { setRes } from './setGetRes';
 
-const loginFetch = async (username, password) => {
+const loginFetch = async (email, password) => {
   try {
     const body = {
-      username: username,
+      email: email,
       password: password,
     };
     const data = {
@@ -17,7 +17,7 @@ const loginFetch = async (username, password) => {
       body: JSON.stringify(body),
     };
 
-    await fetch(`https://p2moviles.herokuapp.com/login`, data).then((dog) => {
+    await fetch(`https://uber-eats-moviles.herokuapp.com/login`, data).then((dog) => {
       if (dog.status == 200) {
         setRes('Success');
       } else {

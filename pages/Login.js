@@ -16,8 +16,8 @@ import { Views } from '../styles/views';
 import InputManager from '../components/InputManager';
 
 //Fetch
-// import loginFetch from '../connectionToBack/loginFetch';
-// import { getRes } from '../connectionToBack/setGetRes';
+import loginFetch from '../connectionToBack/loginFetch';
+import { getRes } from '../connectionToBack/setGetRes';
 
 //Constants declarations
 const { WrapContainer, InnerContainer } = Containers;
@@ -40,6 +40,7 @@ const Login = ({ navigation }) => {
     console.log(response);
 
     if (response == 'Success') {
+      localStorage.setItem('CREDENTIALS', JSON.stringify(email, password));
       alert('Logged Successfully');
       goToDashboard();
     } else {
@@ -114,7 +115,7 @@ const Login = ({ navigation }) => {
                 />
                 {/* <Text style={ExtraText}> {touched.password && errors.password} </Text> */}
 
-                <TouchableOpacity onPress={handleSubmit} style={SignButton}>
+                <TouchableOpacity onPress={Log} style={SignButton}>
                   <Text style={SignButtonText}>Sign In</Text>
                 </TouchableOpacity>
                 <View style={Division} />

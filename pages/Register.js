@@ -16,8 +16,8 @@ import { Views } from '../styles/views';
 import InputManager from '../components/InputManager';
 
 //Fetch
-// import registerFetch from '../connectionToBack/registerFetch';
-// import { getRes } from '../connectionToBack/setGetRes';
+import registerFetch from '../connectionToBack/registerFetch';
+import { getRes } from '../connectionToBack/setGetRes';
 
 //Constants declarations
 const { WrapContainer, InnerContainer } = Containers;
@@ -41,10 +41,10 @@ const Register = ({ navigation }) => {
     console.log(response);
 
     if (response == 'Success') {
-      alert('Logged Successfully');
-      goToDashboard();
+      alert('User Created! Successfully');
+      goToLogin();
     } else {
-      alert('Credentials are not correct');
+      alert('Error Creating User');
       setEmail('');
       setPassword('');
     }
@@ -131,7 +131,7 @@ const Register = ({ navigation }) => {
                   edit={true}
                 />
 
-                <TouchableOpacity onPress={handleSubmit} style={SignButton}>
+                <TouchableOpacity onPress={Log} style={SignButton}>
                   <Text style={SignButtonText}>Sign Up</Text>
                 </TouchableOpacity>
                 <View style={Division} />
