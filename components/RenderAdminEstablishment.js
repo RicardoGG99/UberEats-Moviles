@@ -19,7 +19,7 @@ const { TaskInput } = ButtonStyles;
 
 const RenderAdminEstablishment = ({ item, navigation }) => {
   const goToDashboardProduct = () => {
-    navigation.navigate("DashboardProduct", { name: item.name });
+    navigation.navigate("AdminDashboardProduct", { name: item.name });
   };
 
   return (

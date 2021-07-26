@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TextInput } from "react-native";
+import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import burger from "../assets/burger-king-logo.png";
@@ -27,10 +27,6 @@ const AdminDashboard = ({ navigation }) => {
     },
   ];
 
-  const renderItem = ({ item }) => {
-    return <RenderAdminEstablishment navigation={navigation} item={item} />;
-  };
-
   const loadEstablishments = async () => {
     setShow(dataToRender);
   };
@@ -38,6 +34,10 @@ const AdminDashboard = ({ navigation }) => {
   useEffect(() => {
     loadEstablishments();
   }, []);
+
+  const renderItem = ({ item }) => {
+    return <RenderAdminEstablishment navigation={navigation} item={item} />;
+  };
 
   return (
     <View style={WrapContainer}>

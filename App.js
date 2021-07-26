@@ -8,6 +8,7 @@ import DashboardProduct from "./pages/DashboardProduct";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboardProduct from "./pages/AdminDashboardProduct";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ export default function App() {
           name="AdminDashboard"
           component={AdminDashboard}
           options={{ title: "Welcome Admin" }}
+        />
+        <Stack.Screen
+          name="AdminDashboardProduct"
+          component={AdminDashboardProduct}
+          options={{ title: "Check the Menu" }}
         />
         <Stack.Screen
           name="Dashboard"

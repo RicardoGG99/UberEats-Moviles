@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export const ButtonStyles = StyleSheet.create({
-  TaskButton: {
+  NewButton: {
     alignItems: "center",
-    backgroundColor: "lightseagreen",
+    backgroundColor: "black",
     padding: 15,
     height: 60,
   },
 
-  TaskText: {
+  NewButtonText: {
     color: "white",
     fontSize: 16,
     textAlign: "center",

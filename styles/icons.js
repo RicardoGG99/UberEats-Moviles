@@ -35,4 +35,18 @@ export const Icons = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
   },
+
+  TrashProductIcon: {
+    paddingTop: 20,
+    left: 130,
+    zIndex: 1,
+    position: "relative",
+  },
+
+  EditProductIcon: {
+    paddingTop: 20,
+    left: 130,
+    zIndex: 1,
+    position: "relative",
+  },
 });
