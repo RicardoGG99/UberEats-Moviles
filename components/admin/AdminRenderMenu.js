@@ -44,7 +44,7 @@ const renderItem = ({ item }) => {
   );
 };
 
-const AdminRenderMenu = ({ commerce, label }) => {
+const AdminRenderMenu = ({ commerce, label, nav}) => {
   const [data, setData] = useState("");
 
   const getProducts = async () => {
@@ -55,6 +55,10 @@ const AdminRenderMenu = ({ commerce, label }) => {
   useEffect(() => {
     getProducts();
   }, []);
+
+  const goToCreate = () => {
+    nav.navigate('CreateProduct', {commerce: commerce});
+  }
 
   console.log(`Data: ${data}`);
 
@@ -68,7 +72,7 @@ const AdminRenderMenu = ({ commerce, label }) => {
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
       />
 
-      <TouchableOpacity style={NewButton}>
+      <TouchableOpacity style={NewButton} onPress={goToCreate}>
         <Text style={NewButtonText}>Create a New Product</Text>
       </TouchableOpacity>
     </View>

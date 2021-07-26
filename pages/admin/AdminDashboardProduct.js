@@ -10,14 +10,14 @@ import { Containers } from "../../styles/containers";
 //Constants declarations
 const { DashboardContainer } = Containers;
 
-const AdminDashboardProduct = ({ route }) => {
+const AdminDashboardProduct = ({ route , navigation }) => {
   const commerce = route.params.commerce;
   const label2 = route.params.name;
   console.log(commerce, label2);
 
   return (
     <View style={DashboardContainer}>
-      <AdminRenderMenu label={label2} commerce={commerce} />
+      <AdminRenderMenu label={label2} commerce={commerce} nav={navigation}/>
     </View>
   );
 };

@@ -13,6 +13,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminDashboardProduct from "./pages/admin/AdminDashboardProduct";
 import AdminLogin from "./pages/admin/AdminLogin";
 import CreateEstablishment from "./pages/admin/CreateEstablishment";
+import CreateProduct from './pages/admin/CreateProduct';
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,11 @@ export default function App() {
           name="CreateEstablishment"
           component={CreateEstablishment}
           options={{ title: "Create your own Establishment" }}
+        />
+        <Stack.Screen
+          name="CreateProduct"
+          component={CreateProduct}
+          options={{ title: "Create your own Product" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
