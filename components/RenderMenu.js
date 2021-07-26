@@ -22,7 +22,7 @@ const renderItem = ({ item }) => {
       <View>
         <Image resizeMode="cover" style={ProductImage} source={item.photo} />
         <Text style={ProductText}> {item.product_name} </Text>
-        <Text style={PriceText}> {item.product_price} $ </Text>
+        <Text style={PriceText}> {item.product_price}  </Text>
       </View>
     </View>
   );
