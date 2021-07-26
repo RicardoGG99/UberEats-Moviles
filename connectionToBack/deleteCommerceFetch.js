@@ -10,9 +10,9 @@ const data = {
     }
   };
 
-const deleteTaskFetch = async (item) => {
+const deleteCommerceFetch = async (item) => {
     const res = await fetch(`https://uber-eats-moviles.herokuapp.com/deletecommerce/${item}`, data);
     return 'Success';
 }
 
-export default deleteTaskFetch;
+export default deleteCommerceFetch;
