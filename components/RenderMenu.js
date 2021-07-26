@@ -15,10 +15,6 @@ const { DashboardProductButton } = ButtonStyles;
 const { ProductImage } = Images;
 const { ProductText, PriceText } = Texts;
 const { MenuTitle } = Titles;
-<<<<<<< Updated upstream
-=======
-const { EditProductIcon, TrashProductIcon } = Icons;
->>>>>>> Stashed changes
 
 const renderItem = ({ item }) => {
   return (
