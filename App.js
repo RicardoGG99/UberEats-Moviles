@@ -16,6 +16,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{ title: "Welcome" }}
+        />
         <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboard}
@@ -25,11 +30,6 @@ export default function App() {
           name="AdminDashboardProduct"
           component={AdminDashboardProduct}
           options={{ title: "Check the Menu" }}
-        />
-        <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
-          options={{ title: "Welcome" }}
         />
         <Stack.Screen
           name="Login"

@@ -27,7 +27,7 @@ const RenderEstablishment = ({ item, navigation }) => {
 
         <TouchableOpacity onPress={goToDashboardProduct} style={TaskInput}>
           <TextInput
-            value={item.name}
+            value={item.commerce_name}
             editable={false}
             style={textInput}
             keyboardType="default"

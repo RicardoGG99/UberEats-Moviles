@@ -15,13 +15,14 @@ export const ButtonStyles = StyleSheet.create({
   },
 
   SignOut: {
-    bottom: 534,
-    right: 20,
+    bottom: 634,
+    left: 450,
   },
 
   SignIn: {
-    left: 270,
-    bottom: 485,
+    left: 1270,
+    bottom: 585,
+    zIndex:10000,
   },
 
   LogOutButton: {
