@@ -71,14 +71,14 @@ export const Texts = StyleSheet.create({
   ProductText: {
     alignSelf: "center",
     paddingTop: 10,
-    fontSize: 20,
-    color: "black",
+    fontSize: 25,
+    color: "#100402",
   },
 
   PriceText: {
     alignSelf: "center",
     paddingTop: 3,
-    fontSize: 18,
-    color: "black",
+    fontSize: 22,
+    color: "#100402",
   },
 });

@@ -23,5 +23,6 @@ export const Titles = StyleSheet.create({
     paddingTop: 10,
     fontWeight: "bold",
     fontSize: 35,
+    color: "#100402",
   },
 });

@@ -26,6 +26,6 @@ export const Images = StyleSheet.create({
     width: 300,
     height: 220,
     borderRadius: 40,
-    backgroundColor: "#9C4E93",
+    backgroundColor: "#2E4053",
   },
 });

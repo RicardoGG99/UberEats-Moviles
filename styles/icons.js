@@ -24,7 +24,14 @@ export const Icons = StyleSheet.create({
 
   TrashIcon: {
     right: 20,
-    top: 13,
+    top: 20,
+    position: "absolute",
+    zIndex: 1,
+  },
+
+  EditIcon: {
+    right: 60,
+    top: 20,
     position: "absolute",
     zIndex: 1,
   },
