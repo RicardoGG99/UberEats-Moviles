@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import burger from "../assets/burger-king-logo.png";
 
 //Components
 import DashboardTitle from "../components/DashboardTitle";

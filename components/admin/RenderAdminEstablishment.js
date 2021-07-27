@@ -45,8 +45,6 @@ const RenderAdminEstablishment = ({ item, navigation }) => {
   return (
     <ScrollView>
       <View>
-        <Image style={EstablishmentIcon} source={item.image}></Image>
-
         <TouchableOpacity onPress={getProducts} style={TaskInput}>
           <TextInput
             value={item.commerce_name}
