@@ -49,6 +49,7 @@ const AdminRenderMenu = ({ commerce, label, nav }) => {
         name: item.product_name,
         dsc: item.product_dsc,
         price: item.product_price,
+        id: item.product_id,
       });
     };
 

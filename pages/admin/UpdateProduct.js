@@ -34,7 +34,8 @@ const UpdateProduct = ({ route }) => {
   }, []);
 
   const update = async () => {
-    await updateFetch(name, category, location, dsc);
+    await updateFetch(name, dsc, price, route.params.id);
+    alert(route.params.id);
     alert("Product Updated!" + "\n" + "Please Refresh");
   };
 

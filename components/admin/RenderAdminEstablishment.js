@@ -39,6 +39,7 @@ const RenderAdminEstablishment = ({ item, navigation }) => {
       category: item.commerce_category,
       location: item.commerce_location,
       dsc: item.commerce_dsc,
+      id: item.commerce_id,
     });
   };
 

@@ -33,10 +33,11 @@ const UpdateEstablishment = ({ route }) => {
     setCategory(route.params.category);
     setLocation(route.params.location);
     setDsc(route.params.dsc);
+    console.log(route.params.id);
   }, []);
 
   const update = async () => {
-    await updateFetch(name, category, location, dsc);
+    await updateFetch(name, category, location, dsc, route.params.id);
     alert("Establishment Updated!" + "\n" + "Please Refresh");
   };
 
