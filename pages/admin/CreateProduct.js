@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { Formik } from "formik";
 
-import createFetch from '../../connectionToBack/createProductFetch'
+import createFetch from "../../connectionToBack/createProductFetch";
 
 //Components
 import InputManager from "../../components/InputManager";
@@ -21,9 +21,9 @@ const { FormArea } = Views;
 const { SignButton, SignButtonText } = ButtonStyles;
 const { PageTitle } = Titles;
 
-const CreateProduct = ({route}) => {
-    const id = route.params.commerce;
-    console.log(id);
+const CreateProduct = ({ navigation, route }) => {
+  const id = route.params.commerce;
+  console.log(id);
   //useState
   const [name, setName] = useState("");
   const [dsc, setDsc] = useState("");
@@ -31,7 +31,8 @@ const CreateProduct = ({route}) => {
 
   const create = async () => {
     await createFetch(name, dsc, price, id);
-    alert('Created!')
+    alert("Created!" + "\n" + "Please Refresh");
+    navigation.navigate("AdminDashboardProduct");
   };
 
   return (
@@ -39,7 +40,10 @@ const CreateProduct = ({route}) => {
       <StatusBar style="light" />
       <View style={InnerContainer}>
         <View style={DashboardContainer}>
-          <Text style={PageTitle}> Build Your Own Restaurant </Text>
+          <Text style={PageTitle}>
+            {" "}
+            Build Your Own Product for your Restaurant{" "}
+          </Text>
           <Formik
             initialValues={{ name: "", category: "", location: "", dsc: "" }}
             handleSubmit={(values) => {
@@ -51,7 +55,7 @@ const CreateProduct = ({route}) => {
                 <InputManager
                   label="Name"
                   icon="user"
-                  placeholder="Burger King"
+                  placeholder="Whopper"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("name")}
                   blurr={handleBlur("name")}
@@ -62,11 +66,10 @@ const CreateProduct = ({route}) => {
                   edit={true}
                 />
 
-                
                 <InputManager
                   label="Description"
                   icon="info"
-                  placeholder="We Sell Joy"
+                  placeholder="Hamburger with Onions, Lettuce and Tomatoes"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("dsc")}
                   blurr={handleBlur("dsc")}
@@ -78,8 +81,8 @@ const CreateProduct = ({route}) => {
 
                 <InputManager
                   label="Price"
-                  icon="location"
-                  placeholder="$$$"
+                  icon="credit"
+                  placeholder="$$$ (USD)"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("price")}
                   blurr={handleBlur("price")}
@@ -88,7 +91,6 @@ const CreateProduct = ({route}) => {
                   value={price}
                   edit={true}
                 />
-
 
                 <TouchableOpacity onPress={create} style={SignButton}>
                   <Text style={SignButtonText}>Create It</Text>

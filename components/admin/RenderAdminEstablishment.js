@@ -13,7 +13,7 @@ import { Icons } from "../../styles/icons";
 import { Texts } from "../../styles/texts";
 import { ButtonStyles } from "../../styles/buttons";
 
-import deleteCommerce from '../../connectionToBack/deleteCommerceFetch'
+import deleteCommerce from "../../connectionToBack/deleteCommerceFetch";
 
 const { EstablishmentIcon, TrashIcon, EditIcon } = Icons;
 const { textInput } = Texts;
@@ -28,9 +28,19 @@ const RenderAdminEstablishment = ({ item, navigation }) => {
     console.log(`Render Establishment: ${item}`);
   };
 
- const deleteCommerceFetch = async () => {
-   await deleteCommerce(item.commerce_id);
- }
+  const deleteCommerceFetch = async () => {
+    await deleteCommerce(item.commerce_id);
+    alert("Commerce was Succesfully Deleted, Please Refresh");
+  };
+
+  const goToUpdateEstablishment = () => {
+    navigation.navigate("UpdateEstablishment", {
+      name: item.commerce_name,
+      category: item.commerce_category,
+      location: item.commerce_location,
+      dsc: item.commerce_dsc,
+    });
+  };
 
   return (
     <ScrollView>
@@ -50,7 +60,7 @@ const RenderAdminEstablishment = ({ item, navigation }) => {
           <Entypo name="trash" color="#40953B" size={25} style={TrashIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={goToUpdateEstablishment}>
           <Entypo name="edit" color="#40953B" size={25} style={EditIcon} />
         </TouchableOpacity>
       </View>

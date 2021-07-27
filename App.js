@@ -13,7 +13,9 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminDashboardProduct from "./pages/admin/AdminDashboardProduct";
 import AdminLogin from "./pages/admin/AdminLogin";
 import CreateEstablishment from "./pages/admin/CreateEstablishment";
-import CreateProduct from './pages/admin/CreateProduct';
+import CreateProduct from "./pages/admin/CreateProduct";
+import UpdateEstablishment from "./pages/admin/UpdateEstablishment";
+import UpdateProduct from "./pages/admin/UpdateProduct";
 
 const Stack = createStackNavigator();
 
@@ -21,16 +23,17 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ title: "Enter to your Account" }}
-        />
         <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboard}
           options={{ title: "Welcome Administrator" }}
         />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: "Enter to your Account" }}
+        />
+
         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
@@ -41,7 +44,7 @@ export default function App() {
           component={AdminDashboardProduct}
           options={{ title: "Check the Menu Administrator" }}
         />
-       
+
         <Stack.Screen
           name="Register"
           component={Register}
@@ -66,6 +69,16 @@ export default function App() {
           name="CreateProduct"
           component={CreateProduct}
           options={{ title: "Create your own Product" }}
+        />
+        <Stack.Screen
+          name="UpdateEstablishment"
+          component={UpdateEstablishment}
+          options={{ title: "Update Establishment" }}
+        />
+        <Stack.Screen
+          name="UpdateProduct"
+          component={UpdateProduct}
+          options={{ title: "Update Product" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

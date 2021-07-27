@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { Formik } from "formik";
 
-import createFetch from "../../connectionToBack/createCommerceFetch";
+import updateFetch from "../../connectionToBack/updateProductFetch";
 
 //Components
 import InputManager from "../../components/InputManager";
@@ -21,21 +21,21 @@ const { FormArea } = Views;
 const { SignButton, SignButtonText } = ButtonStyles;
 const { PageTitle } = Titles;
 
-const CreateEstablishment = ({ navigation }) => {
+const UpdateProduct = ({ route }) => {
   //useState
   const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
   const [dsc, setDsc] = useState("");
+  const [price, setPrice] = useState("");
 
-  const goToAdminDashboard = () => {
-    navigation.navigate("AdminDashboard");
-  };
+  useEffect(() => {
+    setName(route.params.name);
+    setPrice(route.params.price);
+    setDsc(route.params.dsc);
+  }, []);
 
-  const create = async () => {
-    await createFetch(name, category, location, dsc);
-    alert("Created!" + "\n" + "Please Refresh");
-    goToAdminDashboard();
+  const update = async () => {
+    await updateFetch(name, category, location, dsc);
+    alert("Product Updated!" + "\n" + "Please Refresh");
   };
 
   return (
@@ -43,9 +43,9 @@ const CreateEstablishment = ({ navigation }) => {
       <StatusBar style="light" />
       <View style={InnerContainer}>
         <View style={DashboardContainer}>
-          <Text style={PageTitle}> Build Your Own Restaurant </Text>
+          <Text style={PageTitle}> Update Your Restaurant </Text>
           <Formik
-            initialValues={{ name: "", category: "", location: "", dsc: "" }}
+            initialValues={{ name: "", dsc: "", price: "" }}
             handleSubmit={(values) => {
               console.log(values);
             }}
@@ -55,7 +55,7 @@ const CreateEstablishment = ({ navigation }) => {
                 <InputManager
                   label="Name"
                   icon="user"
-                  placeholder="Burger King"
+                  placeholder="Whopper"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("name")}
                   blurr={handleBlur("name")}
@@ -67,35 +67,9 @@ const CreateEstablishment = ({ navigation }) => {
                 />
 
                 <InputManager
-                  label="Category"
-                  icon="book"
-                  placeholder="Fast Food"
-                  placeholderTextColor="#9CA3AF"
-                  onChangeText={handleChange("category")}
-                  blurr={handleBlur("category")}
-                  value={values.category}
-                  onChangeText={(category) => setCategory(category)}
-                  value={category}
-                  edit={true}
-                />
-
-                <InputManager
-                  label="Location"
-                  icon="location"
-                  placeholder="21st St."
-                  placeholderTextColor="#9CA3AF"
-                  onChangeText={handleChange("location")}
-                  blurr={handleBlur("location")}
-                  value={values.location}
-                  onChangeText={(location) => setLocation(location)}
-                  value={location}
-                  edit={true}
-                />
-
-                <InputManager
                   label="Description"
                   icon="info"
-                  placeholder="We Sell Joy"
+                  placeholder="Hamburger with Onions, Lettuce and Tomatoes"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("dsc")}
                   blurr={handleBlur("dsc")}
@@ -105,8 +79,21 @@ const CreateEstablishment = ({ navigation }) => {
                   edit={true}
                 />
 
-                <TouchableOpacity onPress={create} style={SignButton}>
-                  <Text style={SignButtonText}>Create It</Text>
+                <InputManager
+                  label="Price"
+                  icon="credit"
+                  placeholder="$$$ (USD)"
+                  placeholderTextColor="#9CA3AF"
+                  onChangeText={handleChange("price")}
+                  blurr={handleBlur("price")}
+                  value={values.location}
+                  onChangeText={(price) => setPrice(price)}
+                  value={price}
+                  edit={true}
+                />
+
+                <TouchableOpacity onPress={update} style={SignButton}>
+                  <Text style={SignButtonText}>Update It</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -117,4 +104,4 @@ const CreateEstablishment = ({ navigation }) => {
   );
 };
 
-export default CreateEstablishment;
+export default UpdateProduct;

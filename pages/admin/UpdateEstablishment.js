@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { Formik } from "formik";
 
-import createFetch from "../../connectionToBack/createCommerceFetch";
+import updateFetch from "../../connectionToBack/updateCommerceFetch";
 
 //Components
 import InputManager from "../../components/InputManager";
@@ -21,21 +21,23 @@ const { FormArea } = Views;
 const { SignButton, SignButtonText } = ButtonStyles;
 const { PageTitle } = Titles;
 
-const CreateEstablishment = ({ navigation }) => {
+const UpdateEstablishment = ({ route }) => {
   //useState
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [dsc, setDsc] = useState("");
 
-  const goToAdminDashboard = () => {
-    navigation.navigate("AdminDashboard");
-  };
+  useEffect(() => {
+    setName(route.params.name);
+    setCategory(route.params.category);
+    setLocation(route.params.location);
+    setDsc(route.params.dsc);
+  }, []);
 
-  const create = async () => {
-    await createFetch(name, category, location, dsc);
-    alert("Created!" + "\n" + "Please Refresh");
-    goToAdminDashboard();
+  const update = async () => {
+    await updateFetch(name, category, location, dsc);
+    alert("Establishment Updated!" + "\n" + "Please Refresh");
   };
 
   return (
@@ -43,7 +45,7 @@ const CreateEstablishment = ({ navigation }) => {
       <StatusBar style="light" />
       <View style={InnerContainer}>
         <View style={DashboardContainer}>
-          <Text style={PageTitle}> Build Your Own Restaurant </Text>
+          <Text style={PageTitle}> Update Your Restaurant </Text>
           <Formik
             initialValues={{ name: "", category: "", location: "", dsc: "" }}
             handleSubmit={(values) => {
@@ -105,8 +107,8 @@ const CreateEstablishment = ({ navigation }) => {
                   edit={true}
                 />
 
-                <TouchableOpacity onPress={create} style={SignButton}>
-                  <Text style={SignButtonText}>Create It</Text>
+                <TouchableOpacity onPress={update} style={SignButton}>
+                  <Text style={SignButtonText}>Update It</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -117,4 +119,4 @@ const CreateEstablishment = ({ navigation }) => {
   );
 };
 
-export default CreateEstablishment;
+export default UpdateEstablishment;
