@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  TouchableOpacity,
-  TextInput,
-  ScrollView,
-  Image,
-} from "react-native";
+import { View, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
 import { Icons } from "../styles/icons";

@@ -43,7 +43,7 @@ const Register = ({ navigation }) => {
     if (password == confirmPassword) {
       if (response == "Success") {
         alert("User Created Successfully");
-        goToDashboard();
+        goToLogin();
       } else {
         alert("Credentials are not correct");
         setEmail("");

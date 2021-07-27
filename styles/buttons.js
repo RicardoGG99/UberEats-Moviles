@@ -33,6 +33,11 @@ export const ButtonStyles = StyleSheet.create({
     bottom: "100%",
   },
 
+  LoggOutButton: {
+    left: 0,
+    top: 0,
+  },
+
   SignButton: {
     padding: 15,
     backgroundColor: "#40953B",

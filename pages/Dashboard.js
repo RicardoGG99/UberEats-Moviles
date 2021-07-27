@@ -73,6 +73,7 @@ const Dashboard = ({ navigation }) => {
             show={show}
             renderItem={renderItem}
             keyExtractor={(item) => item.commerce_id.toString()}
+            navigation={navigation}
           />
         </View>
       </View>
