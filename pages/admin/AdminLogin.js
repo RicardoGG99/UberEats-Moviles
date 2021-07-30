@@ -104,7 +104,7 @@ const AdminLogin = ({ navigation }) => {
                 <InputManager
                   label="Password"
                   icon="lock"
-                  placeholder="**** (8-20 characters)"
+                  placeholder="******** (8-20 characters)"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("password")}
                   blurr={handleBlur("password")}

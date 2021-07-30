@@ -31,6 +31,10 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
     navigation.navigate("Login");
   };
 
+  const goToRegisterPayment = () => {
+    navigation.navigate("RegisterPayment");
+  };
+
   return (
     <View style={DashboardTitleView}>
       <Text style={DashboardTitleText}>

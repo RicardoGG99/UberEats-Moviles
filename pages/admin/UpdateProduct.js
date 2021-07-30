@@ -44,7 +44,7 @@ const UpdateProduct = ({ route }) => {
       <StatusBar style="light" />
       <View style={InnerContainer}>
         <View style={DashboardContainer}>
-          <Text style={PageTitle}> Update Your Restaurant </Text>
+          <Text style={PageTitle}> Update Your Product </Text>
           <Formik
             initialValues={{ name: "", dsc: "", price: "" }}
             handleSubmit={(values) => {
