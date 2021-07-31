@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "localstorage-polyfill";
 import { TouchableOpacity, View, Image, Text, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Formik } from "formik";
@@ -40,12 +41,15 @@ const Login = ({ navigation }) => {
     console.log(response);
 
     if (response == "Success") {
-      localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
-      console.log("el local: " + localStorage.getItem("CREDENTIALS"));
-      alert("Logged Successfully");
-      goToDashboard();
-    
-
+      // localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
+      try {
+        localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
+        console.log("el local: " + localStorage.getItem("CREDENTIALS"));
+        alert("Logged Successfully");
+        goToDashboard();
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       alert("Credentials are not correct");
       setEmail("");
@@ -57,8 +61,8 @@ const Login = ({ navigation }) => {
     navigation.navigate("Register");
   };
   const goToAdminDashboard = () => {
-    navigation.navigate("AdminDashboard")
-  }
+    navigation.navigate("AdminDashboard");
+  };
   const goToDashboard = () => {
     navigation.navigate("Dashboard");
   };

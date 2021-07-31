@@ -1,4 +1,5 @@
 import React from "react";
+import "localstorage-polyfill";
 
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
@@ -16,8 +17,8 @@ const { DashboardTitleView } = Views;
 const { LoggOutButton } = ButtonStyles;
 
 const DashboardTitle = ({ show, navigation, ...props }) => {
-  const logOut = () => {
-    logoutFetch();
+  const logOut = async () => {
+    await logoutFetch();
     const response = getRes();
 
     if (response == "Success") {

@@ -25,15 +25,6 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="RegisterPayment"
-          component={RegisterPayment}
-          options={{
-            title: "Register your Payment",
-            headerTitleAlign: "center",
-            headerStyle: { backgroundColor: "lightgreen" },
-          }}
-        />
-        <Stack.Screen
           name="Login"
           component={Login}
           options={{
@@ -43,6 +34,16 @@ export default function App() {
             headerStyle: { backgroundColor: "black" },
           }}
         />
+        <Stack.Screen
+          name="RegisterPayment"
+          component={RegisterPayment}
+          options={{
+            title: "Register your Payment",
+            headerTitleAlign: "center",
+            headerStyle: { backgroundColor: "lightgreen" },
+          }}
+        />
+
         <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboard}
