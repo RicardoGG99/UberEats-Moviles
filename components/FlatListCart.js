@@ -8,7 +8,7 @@ import { Views } from "../styles/views";
 import { ButtonStyles } from "../styles/buttons";
 
 //styles declarations
-const { DashboardTitleText } = Texts;
+const { DashboardTitleText, TotalProducts } = Texts;
 const { DashboardTitleView } = Views;
 const { NewButton, NewButtonText } = ButtonStyles;
 
@@ -22,6 +22,8 @@ const FlatListCart = ({ show, navigation, ...props }) => {
       <Text style={DashboardTitleText}>Check your Shopping Cart</Text>
 
       <FlatList data={show} {...props}></FlatList>
+
+      <Text style={TotalProducts}>Total Amount: 200 $</Text>
 
       <TouchableOpacity onPress={goToRegisterPayment} style={NewButton}>
         <Text style={NewButtonText}> Register your Payment </Text>

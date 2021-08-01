@@ -83,4 +83,20 @@ export const Texts = StyleSheet.create({
     fontSize: 22,
     color: "#100402",
   },
+
+  ProductPriceCart: {
+    left: 230,
+    top: -53,
+    fontSize: 18,
+    color: "white",
+  },
+
+  TotalProducts: {
+    paddingBottom: 20,
+    paddingTop: 20,
+    fontSize: 25,
+    color: "black",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
 });

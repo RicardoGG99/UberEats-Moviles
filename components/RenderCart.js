@@ -1,5 +1,11 @@
 import React from "react";
-import { View, TouchableOpacity, TextInput, ScrollView } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  Text,
+} from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -9,7 +15,7 @@ import { Texts } from "../styles/texts";
 // import deleteCommerce from "../connectionToBack/deleteCommerceFetch";
 
 const { TrashCart } = Icons;
-const { textInput } = Texts;
+const { textInput, ProductPriceCart } = Texts;
 
 const RenderCart = ({ item, navigation }) => {
   const deleteProductFromCart = async () => {
@@ -26,6 +32,8 @@ const RenderCart = ({ item, navigation }) => {
           style={textInput}
           keyboardType="default"
         ></TextInput>
+
+        <Text style={ProductPriceCart}>100 $</Text>
 
         <TouchableOpacity onPress={deleteProductFromCart}>
           <Entypo name="trash" color="black" size={40} style={TrashCart} />

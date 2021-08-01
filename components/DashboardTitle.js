@@ -43,7 +43,7 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
       </Text>
 
       <TouchableOpacity onPress={logOut}>
-        <Entypo name="log-out" size={25} style={LoggOutButton} />
+        <Entypo name="log-out" size={45} style={LoggOutButton} />
       </TouchableOpacity>
 
       <FlatList data={show} {...props}></FlatList>
