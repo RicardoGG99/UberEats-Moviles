@@ -4,7 +4,9 @@ import { StatusBar } from "expo-status-bar";
 
 import { Formik } from "formik";
 
+//fetch
 import updateFetch from "../../connectionToBack/updateProductFetch";
+import { getRes } from "../../connectionToBack/setGetRes";
 
 //Components
 import InputManager from "../../components/InputManager";
@@ -21,7 +23,7 @@ const { FormArea } = Views;
 const { SignButton, SignButtonText } = ButtonStyles;
 const { PageTitle } = Titles;
 
-const UpdateProduct = ({ route }) => {
+const UpdateProduct = ({ navigation, route }) => {
   //useState
   const [name, setName] = useState("");
   const [dsc, setDsc] = useState("");
@@ -29,14 +31,23 @@ const UpdateProduct = ({ route }) => {
 
   useEffect(() => {
     setName(route.params.name);
-    setPrice(route.params.price);
     setDsc(route.params.dsc);
+    setPrice(route.params.price);
   }, []);
 
   const update = async () => {
     await updateFetch(name, dsc, price, route.params.id);
-    alert(route.params.id);
-    alert("Product Updated!" + "\n" + "Please Refresh");
+    const response = getRes();
+
+    if (response == "Success") {
+      alert("Product Updated!" + "\n" + "Please Refresh");
+      navigation.navigate("AdminDashboardProduct");
+    } else {
+      alert("Product could not be updated");
+      setName("");
+      setDsc("");
+      setPrice("");
+    }
   };
 
   return (
@@ -91,6 +102,7 @@ const UpdateProduct = ({ route }) => {
                   onChangeText={(price) => setPrice(price)}
                   value={price}
                   edit={true}
+                  keyboardType="number-pad"
                 />
 
                 <TouchableOpacity onPress={update} style={SignButton}>

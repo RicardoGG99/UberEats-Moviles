@@ -23,6 +23,7 @@ const updateProductFetch = async (name, dsc, price, id) => {
       data
     )
       .then((cat) => {
+        console.log(cat.status);
         if (cat.status == 200) {
           setRes("Success");
         } else {

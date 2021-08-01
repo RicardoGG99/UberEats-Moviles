@@ -25,7 +25,7 @@ const { PageTitle } = Titles;
 
 const CreateProduct = ({ navigation, route }) => {
   const id = route.params.commerce;
-  console.log(id);
+
   //useState
   const [name, setName] = useState("");
   const [dsc, setDsc] = useState("");
@@ -40,10 +40,6 @@ const CreateProduct = ({ navigation, route }) => {
       navigation.navigate("AdminDashboardProduct");
     } else {
       alert("There was an error to create the product");
-      console.log("id: " + id);
-      console.log("name: " + name);
-      console.log("dsc: " + dsc);
-      console.log("price: " + price);
       setName("");
       setDsc("");
       setPrice("");
@@ -105,6 +101,7 @@ const CreateProduct = ({ navigation, route }) => {
                   onChangeText={(price) => setPrice(price)}
                   value={price}
                   edit={true}
+                  keyboardType="number-pad"
                 />
 
                 <TouchableOpacity onPress={create} style={SignButton}>

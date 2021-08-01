@@ -11,8 +11,6 @@ import { Containers } from "../styles/containers";
 
 //fetch
 import getCommercesFetch from "../connectionToBack/getCommercesFetch";
-import logoutFetch from "../connectionToBack/logoutFetch";
-import { getRes } from "../connectionToBack/setGetRes";
 
 //Constants declarations
 const { WrapContainer, InnerContainer, DashboardContainer } = Containers;
@@ -24,40 +22,12 @@ const Dashboard = ({ navigation }) => {
     setShow(data);
   };
 
-  const goToDashboard = () => {
-    navigation.navigate("Dashboard");
-  };
-
-  const goToLogin = () => {
-    navigation.navigate("Login");
-  };
-
-  const logOut = () => {
-    logoutFetch();
-    const response = getRes();
-
-    if (response == "Success") {
-      localStorage.clear();
-      alert("Logged Out!");
-      goToDashboard();
-    } else {
-      alert("You Must have a Session!");
-      goToLogin();
-    }
-  };
-
   //useState y useEffect
   const [show, setShow] = useState("");
 
   useEffect(() => {
     loadEstablishments();
   }, []);
-
-  //Redirects
-
-  const onRefresh = React.useCallback(async () => {
-    await loadEstablishments();
-  });
 
   //Render Flatlist Items
   const renderItem = ({ item }) => {
