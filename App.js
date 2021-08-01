@@ -34,11 +34,44 @@ export default function App() {
             headerStyle: { backgroundColor: "black" },
           }}
         />
+
         <Stack.Screen
-          name="RegisterPayment"
-          component={RegisterPayment}
+          name="AdminLogin"
+          component={AdminLogin}
           options={{
-            title: "Register your Payment",
+            title: "Enter to your Administrator Account",
+            headerTitleAlign: "center",
+            headerTintColor: "white",
+            headerStyle: { backgroundColor: "black" },
+          }}
+        />
+
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{
+            title: "Join Uber Eats",
+            headerTitleAlign: "center",
+            headerTintColor: "white",
+            headerStyle: { backgroundColor: "black" },
+          }}
+        />
+
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            title: "Welcome",
+            headerTitleAlign: "center",
+            headerStyle: { backgroundColor: "lightgreen" },
+          }}
+        />
+
+        <Stack.Screen
+          name="DashboardProduct"
+          component={DashboardProduct}
+          options={{
+            title: "Check the Menu",
             headerTitleAlign: "center",
             headerStyle: { backgroundColor: "lightgreen" },
           }}
@@ -53,15 +86,7 @@ export default function App() {
             headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
-        <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
-          options={{
-            title: "Welcome",
-            headerTitleAlign: "center",
-            headerStyle: { backgroundColor: "lightgreen" },
-          }}
-        />
+
         <Stack.Screen
           name="AdminDashboardProduct"
           component={AdminDashboardProduct}
@@ -71,35 +96,17 @@ export default function App() {
             headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
+
         <Stack.Screen
-          name="Register"
-          component={Register}
+          name="RegisterPayment"
+          component={RegisterPayment}
           options={{
-            title: "Join Uber Eats",
-            headerTitleAlign: "center",
-            headerTintColor: "white",
-            headerStyle: { backgroundColor: "black" },
-          }}
-        />
-        <Stack.Screen
-          name="DashboardProduct"
-          component={DashboardProduct}
-          options={{
-            title: "Check the Menu",
+            title: "Register your Payment",
             headerTitleAlign: "center",
             headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
-        <Stack.Screen
-          name="AdminLogin"
-          component={AdminLogin}
-          options={{
-            title: "Enter to your Administrator Account",
-            headerTitleAlign: "center",
-            headerTintColor: "white",
-            headerStyle: { backgroundColor: "black" },
-          }}
-        />
+
         <Stack.Screen
           name="CreateEstablishment"
           component={CreateEstablishment}
@@ -109,6 +116,7 @@ export default function App() {
             headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
+
         <Stack.Screen
           name="CreateProduct"
           component={CreateProduct}
@@ -118,6 +126,7 @@ export default function App() {
             headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
+
         <Stack.Screen
           name="UpdateEstablishment"
           component={UpdateEstablishment}
@@ -127,6 +136,7 @@ export default function App() {
             headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
+
         <Stack.Screen
           name="UpdateProduct"
           component={UpdateProduct}

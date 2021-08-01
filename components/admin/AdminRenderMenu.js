@@ -22,6 +22,7 @@ const { EditProductIcon, TrashProductIcon } = Icons;
 
 const AdminRenderMenu = ({ commerce, label, nav }) => {
   const [data, setData] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
 
   const getProducts = async () => {
     const data = await getCommerceProductsFetch(commerce);
@@ -30,6 +31,18 @@ const AdminRenderMenu = ({ commerce, label, nav }) => {
 
   useEffect(() => {
     getProducts();
+  }, []);
+
+  const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+  };
+
+  const onRefresh = React.useCallback(async () => {
+    setRefreshing(true);
+    await wait(2000).then(() => {
+      getProducts();
+      setRefreshing(false);
+    });
   }, []);
 
   const goToCreate = () => {
@@ -90,6 +103,8 @@ const AdminRenderMenu = ({ commerce, label, nav }) => {
         keyExtractor={(commerce) => commerce.toString()}
         renderItem={renderItem}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
+        onRefresh={onRefresh}
+        refreshing={refreshing}
       />
 
       <TouchableOpacity style={NewButton} onPress={goToCreate}>

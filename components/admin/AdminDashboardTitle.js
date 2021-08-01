@@ -15,6 +15,9 @@ const { DashboardTitleText } = Texts;
 const { DashboardTitleView } = Views;
 const { NewButton, NewButtonText, LoggOutButton } = ButtonStyles;
 
+//fetch
+import getCommercesFetch from "../../connectionToBack/getCommercesFetch";
+
 const AdminDashboardTitle = ({ show, navigation, ...props }) => {
   const goToCreateEstablishment = () => {
     navigation.navigate("CreateEstablishment");
