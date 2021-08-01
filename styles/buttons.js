@@ -34,8 +34,8 @@ export const ButtonStyles = StyleSheet.create({
   },
 
   LoggOutButton: {
-    left: 0,
-    top: 0,
+    left: 300,
+    top: -10,
   },
 
   SignButton: {

@@ -23,28 +23,31 @@ export const Icons = StyleSheet.create({
   },
 
   TrashIcon: {
-    right: 20,
-    top: -60,
-    position: "absolute",
+    paddingTop: 5,
+    right: -80,
     zIndex: 1,
+    position: "relative",
   },
 
   EditIcon: {
-    right: 70,
-    top: -60,
-    position: "absolute",
+    paddingTop: 10,
+    top: -35,
+    right: -120,
     zIndex: 1,
+    position: "relative",
   },
 
   TrashProductIcon: {
     paddingTop: 20,
     zIndex: 1,
     position: "relative",
+    right: -135,
   },
 
   EditProductIcon: {
     paddingTop: 20,
     zIndex: 1,
     position: "relative",
+    right: -135,
   },
 });

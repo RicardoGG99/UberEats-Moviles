@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, TextInput } from "react-native";
+import { View, TouchableOpacity, TextInput, ScrollView } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -38,24 +38,26 @@ const RenderAdminEstablishment = ({ item, navigation }) => {
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={getProducts} style={TaskInput}>
-        <TextInput
-          value={item.commerce_name}
-          editable={false}
-          style={textInput}
-          keyboardType="default"
-        ></TextInput>
-      </TouchableOpacity>
+    <ScrollView>
+      <View>
+        <TouchableOpacity onPress={getProducts} style={TaskInput}>
+          <TextInput
+            value={item.commerce_name}
+            editable={false}
+            style={textInput}
+            keyboardType="default"
+          ></TextInput>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={deleteCommerceFetch}>
-        <Entypo name="trash" color="#40953B" size={25} style={TrashIcon} />
-      </TouchableOpacity>
+        <TouchableOpacity onPress={deleteCommerceFetch}>
+          <Entypo name="trash" color="black" size={25} style={TrashIcon} />
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={goToUpdateEstablishment}>
-        <Entypo name="edit" color="#40953B" size={25} style={EditIcon} />
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={goToUpdateEstablishment}>
+          <Entypo name="edit" color="black" size={25} style={EditIcon} />
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
