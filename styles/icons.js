@@ -57,4 +57,11 @@ export const Icons = StyleSheet.create({
     position: "relative",
     right: -120,
   },
+
+  TrashCart: {
+    paddingTop: 5,
+    zIndex: 1,
+    position: "relative",
+    right: -240,
+  },
 });

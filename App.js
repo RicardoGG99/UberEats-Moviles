@@ -8,6 +8,7 @@ import DashboardProduct from "./pages/DashboardProduct";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import RegisterPayment from "./pages/RegisterPayment";
+import Cart from "./pages/Cart";
 
 //Administrator
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -142,6 +143,16 @@ export default function App() {
           component={UpdateProduct}
           options={{
             title: "Update Product",
+            headerTitleAlign: "center",
+            headerStyle: { backgroundColor: "lightgreen" },
+          }}
+        />
+
+        <Stack.Screen
+          name="Cart"
+          component={Cart}
+          options={{
+            title: "Check your Shopping Cart",
             headerTitleAlign: "center",
             headerStyle: { backgroundColor: "lightgreen" },
           }}

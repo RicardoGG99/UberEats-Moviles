@@ -70,10 +70,6 @@ const RenderMenu = ({ commerce, label, navigation }) => {
         renderItem={renderItem}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
       />
-
-      <TouchableOpacity onPress={goToRegisterPayment} style={SignButton}>
-        <Text style={SignButtonText}>Register your Payment</Text>
-      </TouchableOpacity>
     </View>
   );
 };

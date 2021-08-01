@@ -1,5 +1,4 @@
 import React from "react";
-// import "localstorage-polyfill";
 
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
@@ -15,7 +14,7 @@ import { AsyncStorage } from "react-native";
 //styles declarations
 const { DashboardTitleText } = Texts;
 const { DashboardTitleView } = Views;
-const { LoggOutButton } = ButtonStyles;
+const { LoggOutButton, SignButton, SignButtonText } = ButtonStyles;
 
 const DashboardTitle = ({ show, navigation, ...props }) => {
   const logOut = async () => {
@@ -33,8 +32,8 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
     navigation.navigate("Login");
   };
 
-  const goToRegisterPayment = () => {
-    navigation.navigate("RegisterPayment");
+  const goToCart = () => {
+    navigation.navigate("Cart");
   };
 
   return (
@@ -48,6 +47,10 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
       </TouchableOpacity>
 
       <FlatList data={show} {...props}></FlatList>
+
+      <TouchableOpacity onPress={goToCart} style={SignButton}>
+        <Text style={SignButtonText}>Go to your Shopping Cart</Text>
+      </TouchableOpacity>
     </View>
   );
 };
