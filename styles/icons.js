@@ -50,4 +50,11 @@ export const Icons = StyleSheet.create({
     position: "relative",
     right: -135,
   },
+
+  CartIcon: {
+    paddingTop: 20,
+    zIndex: 1,
+    position: "relative",
+    right: -120,
+  },
 });

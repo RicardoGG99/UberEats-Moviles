@@ -1,14 +1,8 @@
 import React from "react";
 import { View, TouchableOpacity, TextInput, ScrollView } from "react-native";
-import { Entypo } from "@expo/vector-icons";
 
-import { Icons } from "../styles/icons";
 import { Texts } from "../styles/texts";
 import { ButtonStyles } from "../styles/buttons";
-
-import getCommerceProductsFetch from "../connectionToBack/getCommerceProductsFetch";
-
-const { EstablishmentIcon, TrashIcon, EditIcon } = Icons;
 const { textInput } = Texts;
 const { TaskInput } = ButtonStyles;
 
