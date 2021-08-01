@@ -18,6 +18,7 @@ import InputManager from "../../components/InputManager";
 //Fetch
 import loginFetch from "../../connectionToBack/loginFetch";
 import { getRes } from "../../connectionToBack/setGetRes";
+import { AsyncStorage } from "react-native";
 
 //Constants declarations
 const { WrapContainer, InnerContainer } = Containers;
@@ -40,8 +41,8 @@ const AdminLogin = ({ navigation }) => {
     console.log(response);
 
     if (response == "Success") {
-      localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
-      console.log("el local: " + localStorage.getItem("CREDENTIALS"));
+      AsyncStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
+      console.log("el local: " + AsyncStorage.getItem("CREDENTIALS"));
       alert("Logged Successfully");
       goToAdminDashboard();
     } else {

@@ -1,5 +1,5 @@
 import React from "react";
-import "localstorage-polyfill";
+// import "localstorage-polyfill";
 
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
@@ -10,6 +10,7 @@ import { getRes } from "../connectionToBack/setGetRes";
 import { Texts } from "../styles/texts";
 import { Views } from "../styles/views";
 import { ButtonStyles } from "../styles/buttons";
+import { AsyncStorage } from "react-native";
 
 //styles declarations
 const { DashboardTitleText } = Texts;
@@ -22,7 +23,7 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
     const response = getRes();
 
     if (response == "Success") {
-      localStorage.clear();
+      AsyncStorage.clear();
       alert("Logged Out!");
       goToLogin();
     }

@@ -21,7 +21,7 @@ const { FormArea } = Views;
 const { SignButton, SignButtonText } = ButtonStyles;
 const { PageTitle } = Titles;
 
-const UpdateEstablishment = ({ route }) => {
+const UpdateEstablishment = ({ route, navigation }) => {
   //useState
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -39,6 +39,7 @@ const UpdateEstablishment = ({ route }) => {
   const update = async () => {
     await updateFetch(name, category, location, dsc, route.params.id);
     alert("Establishment Updated!" + "\n" + "Please Refresh");
+    navigation.navigate("AdminDashboard");
   };
 
   return (

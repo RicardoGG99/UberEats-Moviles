@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "localstorage-polyfill";
+// import "localstorage-polyfill";
 import { TouchableOpacity, View, Image, Text, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Formik } from "formik";
@@ -19,6 +19,7 @@ import InputManager from "../components/InputManager";
 //Fetch
 import loginFetch from "../connectionToBack/loginFetch";
 import { getRes } from "../connectionToBack/setGetRes";
+import { AsyncStorage } from "react-native";
 
 //Constants declarations
 const { WrapContainer, InnerContainer } = Containers;
@@ -43,8 +44,8 @@ const Login = ({ navigation }) => {
     if (response == "Success") {
       // localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
       try {
-        localStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
-        console.log("el local: " + localStorage.getItem("CREDENTIALS"));
+        AsyncStorage.setItem("CREDENTIALS", JSON.stringify(email, password));
+        console.log("el local: " + AsyncStorage.getItem("CREDENTIALS"));
         alert("Logged Successfully");
         goToDashboard();
       } catch (error) {

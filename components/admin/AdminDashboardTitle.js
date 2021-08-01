@@ -9,14 +9,12 @@ import { getRes } from "../../connectionToBack/setGetRes";
 import { Texts } from "../../styles/texts";
 import { Views } from "../../styles/views";
 import { ButtonStyles } from "../../styles/buttons";
+import { AsyncStorage } from "react-native";
 
 //styles declarations
 const { DashboardTitleText } = Texts;
 const { DashboardTitleView } = Views;
 const { NewButton, NewButtonText, LoggOutButton } = ButtonStyles;
-
-//fetch
-import getCommercesFetch from "../../connectionToBack/getCommercesFetch";
 
 const AdminDashboardTitle = ({ show, navigation, ...props }) => {
   const goToCreateEstablishment = () => {
@@ -28,7 +26,7 @@ const AdminDashboardTitle = ({ show, navigation, ...props }) => {
     const response = getRes();
 
     if (response == "Success") {
-      localStorage.clear();
+      AsyncStorage.clear();
       alert("Logged Out!");
       goToLogin();
     }

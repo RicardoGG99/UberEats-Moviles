@@ -4,7 +4,9 @@ import { StatusBar } from "expo-status-bar";
 
 import { Formik } from "formik";
 
+//fetch
 import createFetch from "../../connectionToBack/createProductFetch";
+import { getRes } from "../../connectionToBack/setGetRes";
 
 //Components
 import InputManager from "../../components/InputManager";
@@ -31,8 +33,21 @@ const CreateProduct = ({ navigation, route }) => {
 
   const create = async () => {
     await createFetch(name, dsc, price, id);
-    alert("Created!" + "\n" + "Please Refresh");
-    navigation.navigate("AdminDashboardProduct");
+    const response = getRes();
+    console.log(response);
+    if (response == "Success") {
+      alert("Product Created!" + "\n" + "Please Refresh");
+      navigation.navigate("AdminDashboardProduct");
+    } else {
+      alert("There was an error to create the product");
+      console.log("id: " + id);
+      console.log("name: " + name);
+      console.log("dsc: " + dsc);
+      console.log("price: " + price);
+      setName("");
+      setDsc("");
+      setPrice("");
+    }
   };
 
   return (
@@ -45,7 +60,7 @@ const CreateProduct = ({ navigation, route }) => {
             Build Your Own Product for your Restaurant{" "}
           </Text>
           <Formik
-            initialValues={{ name: "", category: "", location: "", dsc: "" }}
+            initialValues={{ name: "", dsc: "", price: "" }}
             handleSubmit={(values) => {
               console.log(values);
             }}
@@ -69,7 +84,7 @@ const CreateProduct = ({ navigation, route }) => {
                 <InputManager
                   label="Description"
                   icon="info"
-                  placeholder="Hamburger with Onions, Lettuce and Tomatoes"
+                  placeholder="Hamburger with Onions"
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("dsc")}
                   blurr={handleBlur("dsc")}
@@ -86,7 +101,7 @@ const CreateProduct = ({ navigation, route }) => {
                   placeholderTextColor="#9CA3AF"
                   onChangeText={handleChange("price")}
                   blurr={handleBlur("price")}
-                  value={values.location}
+                  value={values.price}
                   onChangeText={(price) => setPrice(price)}
                   value={price}
                   edit={true}
