@@ -37,7 +37,7 @@ const RenderMenu = ({ commerce, label, navigation }) => {
   };
 
   const goToRegisterPayment = () => {
-    navigation.navigate("RegisterPayment");
+    navigation.navigate("RegisterPayment", {commerce: commerce});
   };
 
   useEffect(() => {

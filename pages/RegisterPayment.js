@@ -22,7 +22,10 @@ const { FormArea } = Views;
 const { SignButton, SignButtonText } = ButtonStyles;
 const { PageTitle } = Titles;
 
-const RegisterPayment = ({ navigation }) => {
+import registerPaymentFetch from "../connectionToBack/registerPaymentFetch";
+import { getRes } from "../connectionToBack/setGetRes";
+
+const RegisterPayment = ({ navigation, route }) => {
   //useState
   const [origin, setOrigin] = useState("");
   const [destiny, setDestiny] = useState("");
@@ -32,11 +35,23 @@ const RegisterPayment = ({ navigation }) => {
   const [ref, setRef] = useState("");
   const [amount, setAmount] = useState("");
 
+  const commerce = route.params.commerce;
+  console.log("el commerce: " + commerce)
+
   const goToAdminDashboard = () => {
     navigation.navigate("AdminDashboard");
   };
 
-  const register = async () => {};
+  const register = async (commerce) => {
+    await registerPaymentFetch(commerce);
+    const response = getRes();
+    console.log(response)
+    if(response == "Success"){
+       alert("Payment Created");
+    }else{
+      alert("Error Creating Payment!")
+    }
+  };
 
   return (
     <ScrollView>
