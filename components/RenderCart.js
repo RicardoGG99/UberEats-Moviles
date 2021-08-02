@@ -23,17 +23,19 @@ const RenderCart = ({ item, navigation }) => {
     alert("Commerce was Succesfully Deleted, Please Refresh");
   };
 
+  console.log("este es el carrito: " + item);
+
   return (
     <ScrollView>
       <View>
         <TextInput
-          value={item.commerce_name}
+          value={item[1]}
           editable={false}
           style={textInput}
           keyboardType="default"
         ></TextInput>
 
-        <Text style={ProductPriceCart}>100 $</Text>
+        <Text style={ProductPriceCart}>{item[2]}$</Text>
 
         <TouchableOpacity onPress={deleteProductFromCart}>
           <Entypo name="trash" color="black" size={40} style={TrashCart} />

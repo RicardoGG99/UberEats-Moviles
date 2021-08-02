@@ -4,6 +4,7 @@ import { Entypo } from "@expo/vector-icons";
 
 //fetch
 import getCommerceProductsFetch from "../connectionToBack/getCommerceProductsFetch";
+import addItemFetch from "../connectionToBack/addItemFetch";
 
 //styles
 import { ButtonStyles } from "../styles/buttons";
@@ -19,11 +20,13 @@ const { ProductText, PriceText } = Texts;
 const { MenuTitle } = Titles;
 const { CartIcon } = Icons;
 
-const addToCart = () => {
-  alert("Product Added to your Shopping Cart");
-};
-
 const renderItem = ({ item }) => {
+
+  const addToCart = () => {
+    addItemFetch(item.product_id)
+    alert("Product Added to your Shopping Cart");
+  };
+  
   return (
     <View style={DashboardProductButton}>
       <View>

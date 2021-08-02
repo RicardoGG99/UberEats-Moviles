@@ -4,6 +4,7 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import logoutFetch from "../connectionToBack/logoutFetch";
 import { getRes } from "../connectionToBack/setGetRes";
+import getCarItemsFetch from "../connectionToBack/getCarItemsFetch";
 
 //styles
 import { Texts } from "../styles/texts";
@@ -32,7 +33,11 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
     navigation.navigate("Login");
   };
 
-  const goToCart = () => {
+  const goToCart = async() => {
+    
+      const res = await getCarItemsFetch();
+      console.log("los items: " + JSON.stringify(res));
+
     navigation.navigate("Cart");
   };
 

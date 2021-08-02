@@ -17,13 +17,15 @@ const FlatListCart = ({ show, navigation, ...props }) => {
     navigation.navigate("RegisterPayment");
   };
 
+  const total = show.reduce((prev, current) => prev + current[2], 0);
+
   return (
     <View style={DashboardTitleView}>
       <Text style={DashboardTitleText}>Check your Shopping Cart</Text>
 
       <FlatList data={show} {...props}></FlatList>
 
-      <Text style={TotalProducts}>Total Amount: 200 $</Text>
+      <Text style={TotalProducts}>Total Amount: {total}$</Text>
 
       <TouchableOpacity onPress={goToRegisterPayment} style={NewButton}>
         <Text style={NewButtonText}> Register your Payment </Text>

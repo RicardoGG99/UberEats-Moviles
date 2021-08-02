@@ -14,20 +14,21 @@ const { WrapContainer, InnerContainer, DashboardContainer } = Containers;
 
 //fetch
 import getCommercesFetch from "../connectionToBack/getCommercesFetch";
+import getCarItemsFetch from "../connectionToBack/getCarItemsFetch";
 
 const Cart = ({ navigation }) => {
-  const [show, setShow] = useState("");
+  const [show, setShow] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
   const loadCart = async () => {
-    const data = await getCommercesFetch();
-    console.log("los negocios: " + JSON.stringify(data));
+    const data = await getCarItemsFetch();
+    console.log("los items: " + JSON.stringify(data));
     setShow(data);
   };
 
   useEffect(() => {
     loadCart();
-  }, []);
+  },[]);
 
   const wait = (timeout) => {
     return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -44,7 +45,6 @@ const Cart = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return <RenderCart item={item} />;
   };
-
   return (
     <View style={WrapContainer}>
       <StatusBar style="light" />
@@ -54,7 +54,7 @@ const Cart = ({ navigation }) => {
             navigation={navigation}
             show={show}
             renderItem={renderItem}
-            keyExtractor={(item) => item.commerce_id.toString()}
+            keyExtractor={(item) => item[0]}
             onRefresh={onRefresh}
             refreshing={refreshing}
           />
