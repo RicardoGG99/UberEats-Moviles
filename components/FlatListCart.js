@@ -17,7 +17,7 @@ const FlatListCart = ({ show, navigation, ...props }) => {
     navigation.navigate("RegisterPayment");
   };
 
-  const total = show.reduce((prev, current) => prev + current[2], 0);
+  const total = show.reduce((prev, current) => prev + current.price, 0);
 
   return (
     <View style={DashboardTitleView}>

@@ -12,14 +12,15 @@ import { Entypo } from "@expo/vector-icons";
 import { Icons } from "../styles/icons";
 import { Texts } from "../styles/texts";
 
-// import deleteCommerce from "../connectionToBack/deleteCommerceFetch";
+import deleteCarItemFetch from "../connectionToBack/deleteCarItem";
 
 const { TrashCart } = Icons;
 const { textInput, ProductPriceCart } = Texts;
 
 const RenderCart = ({ item, navigation }) => {
   const deleteProductFromCart = async () => {
-    // await deleteCommerce(item.commerce_id);
+    await deleteCarItemFetch(item.id);
+    console.log(item.id)
     alert("Commerce was Succesfully Deleted, Please Refresh");
   };
 
@@ -29,13 +30,13 @@ const RenderCart = ({ item, navigation }) => {
     <ScrollView>
       <View>
         <TextInput
-          value={item[1]}
+          value={item.name}
           editable={false}
           style={textInput}
           keyboardType="default"
         ></TextInput>
 
-        <Text style={ProductPriceCart}>{item[2]}$</Text>
+        <Text style={ProductPriceCart}>{item.price}$</Text>
 
         <TouchableOpacity onPress={deleteProductFromCart}>
           <Entypo name="trash" color="black" size={40} style={TrashCart} />

@@ -54,7 +54,7 @@ const Cart = ({ navigation }) => {
             navigation={navigation}
             show={show}
             renderItem={renderItem}
-            keyExtractor={(item) => item[0]}
+            keyExtractor={(item) => item.id}
             onRefresh={onRefresh}
             refreshing={refreshing}
           />
