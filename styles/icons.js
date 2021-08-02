@@ -59,9 +59,10 @@ export const Icons = StyleSheet.create({
   },
 
   TrashCart: {
-    paddingTop: 5,
+    paddingBottom: 15,
     zIndex: 1,
     position: "relative",
     right: -240,
+    top: -20,
   },
 });

@@ -13,7 +13,6 @@ import { Containers } from "../styles/containers";
 const { WrapContainer, InnerContainer, DashboardContainer } = Containers;
 
 //fetch
-import getCommercesFetch from "../connectionToBack/getCommercesFetch";
 import getCarItemsFetch from "../connectionToBack/getCarItemsFetch";
 
 const Cart = ({ navigation }) => {
@@ -28,7 +27,7 @@ const Cart = ({ navigation }) => {
 
   useEffect(() => {
     loadCart();
-  },[]);
+  }, []);
 
   const wait = (timeout) => {
     return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -54,7 +53,7 @@ const Cart = ({ navigation }) => {
             navigation={navigation}
             show={show}
             renderItem={renderItem}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             onRefresh={onRefresh}
             refreshing={refreshing}
           />

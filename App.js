@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import RegisterPayment from "./pages/RegisterPayment";
 import Cart from "./pages/Cart";
+import Map from "./pages/Map";
 
 //Administrator
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -30,6 +31,17 @@ export default function App() {
           component={Login}
           options={{
             title: "Enter to your Account",
+            headerTitleAlign: "center",
+            headerTintColor: "white",
+            headerStyle: { backgroundColor: "black" },
+          }}
+        />
+
+        <Stack.Screen
+          name="Map"
+          component={Map}
+          options={{
+            title: "Welcome to the Map",
             headerTitleAlign: "center",
             headerTintColor: "white",
             headerStyle: { backgroundColor: "black" },

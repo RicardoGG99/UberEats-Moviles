@@ -20,8 +20,8 @@ const { textInput, ProductPriceCart } = Texts;
 const RenderCart = ({ item, navigation }) => {
   const deleteProductFromCart = async () => {
     await deleteCarItemFetch(item.id);
-    console.log(item.id)
-    alert("Commerce was Succesfully Deleted, Please Refresh");
+    console.log(item.id);
+    alert("Item was Succesfully Deleted from Cart, Please Refresh");
   };
 
   console.log("este es el carrito: " + item);
