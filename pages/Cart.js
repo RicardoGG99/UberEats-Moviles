@@ -15,7 +15,7 @@ const { WrapContainer, InnerContainer, DashboardContainer } = Containers;
 //fetch
 import getCarItemsFetch from "../connectionToBack/getCarItemsFetch";
 
-const Cart = ({ navigation }) => {
+const Cart = ({ navigation, route }) => {
   const [show, setShow] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -27,6 +27,7 @@ const Cart = ({ navigation }) => {
 
   useEffect(() => {
     loadCart();
+    console.log("soy el show: ", route.commerce_id);
   }, []);
 
   const wait = (timeout) => {
@@ -53,8 +54,9 @@ const Cart = ({ navigation }) => {
             navigation={navigation}
             show={show}
             renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => toString(item.id)}
             onRefresh={onRefresh}
+            laId={route.commerce_id}
             refreshing={refreshing}
           />
         </View>

@@ -27,6 +27,15 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            title: "Welcome",
+            headerTitleAlign: "center",
+            headerStyle: { backgroundColor: "lightgreen" },
+          }}
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{
@@ -67,16 +76,6 @@ export default function App() {
             headerTitleAlign: "center",
             headerTintColor: "white",
             headerStyle: { backgroundColor: "black" },
-          }}
-        />
-
-        <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
-          options={{
-            title: "Welcome",
-            headerTitleAlign: "center",
-            headerStyle: { backgroundColor: "lightgreen" },
           }}
         />
 

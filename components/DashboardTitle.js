@@ -33,12 +33,11 @@ const DashboardTitle = ({ show, navigation, ...props }) => {
     navigation.navigate("Login");
   };
 
-  const goToCart = async() => {
-    
-      const res = await getCarItemsFetch();
-      console.log("los items: " + JSON.stringify(res));
+  const goToCart = async () => {
+    const res = await getCarItemsFetch();
+    console.log("items dashboardtitle: " + JSON.stringify(res));
 
-    navigation.navigate("Cart");
+    navigation.navigate("Cart", { commerce_id: show });
   };
 
   return (

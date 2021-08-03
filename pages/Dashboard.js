@@ -18,7 +18,7 @@ const { WrapContainer, InnerContainer, DashboardContainer } = Containers;
 const Dashboard = ({ navigation }) => {
   const loadEstablishments = async () => {
     const data = await getCommercesFetch();
-    console.log("las negocios: " + JSON.stringify(data));
+    console.log("los negocios: " + JSON.stringify(data));
     setShow(data);
   };
 
@@ -29,7 +29,7 @@ const Dashboard = ({ navigation }) => {
     loadEstablishments();
   }, []);
 
-  //Render Flatlist Items
+  // Render Flatlist Items
   const renderItem = ({ item }) => {
     return <RenderEstablishment navigation={navigation} item={item} />;
   };
@@ -42,7 +42,7 @@ const Dashboard = ({ navigation }) => {
           <DashboardTitle
             show={show}
             renderItem={renderItem}
-            keyExtractor={(item) => item.commerce_id.toString()}
+            keyExtractor={(item) => toString(item.commerce_id)}
             navigation={navigation}
           />
         </View>
